@@ -1,0 +1,8 @@
+qa/
+deliverables/
+research/
+tools/
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
