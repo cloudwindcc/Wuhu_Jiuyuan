@@ -6,7 +6,7 @@
 
 - `website/index.html`：官网页面结构
 - `website/styles.css`：响应式样式
-- `website/script.js`：移动端导航、项目启动建议、表单演示逻辑
+- `website/script.js`：移动端导航、项目启动建议、表单记录逻辑
 - `website/assets/hero-architecture-studio.png`：官网主视觉资产
 - `index.html`：GitHub Pages 根路径跳转页
 
@@ -28,4 +28,4 @@ http://127.0.0.1:5177/
 
 如使用 GitHub Pages 并选择仓库根目录作为发布源，根目录的 `index.html` 会自动跳转到 `website/index.html`。
 
-正式上线前建议由公司确认营业执照、资质证书、案例图片、联系人、备案域名和表单收件方式。
+后续可继续补充营业执照、资质证书、案例图片、联系人、备案域名和表单收件方式。

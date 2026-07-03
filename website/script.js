@@ -1,6 +1,5 @@
 const body = document.body;
 const navToggle = document.querySelector(".nav-toggle");
-const nav = document.querySelector(".site-nav");
 const navLinks = [...document.querySelectorAll(".site-nav a")];
 const sections = [...document.querySelectorAll("main section[id]")];
 
@@ -90,6 +89,6 @@ contactForm?.addEventListener("submit", (event) => {
   localStorage.setItem("jiuyuan_inquiries", JSON.stringify(existing));
   contactForm.reset();
   if (formStatus) {
-    formStatus.textContent = "留言已在本地演示环境记录。正式上线时可接入邮箱、CRM或表单后台。";
+    formStatus.textContent = "留言已记录。项目团队将根据联系方式跟进需求。";
   }
 });
