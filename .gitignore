@@ -2,6 +2,7 @@ qa/
 deliverables/
 research/
 tools/
+.wrangler/
 *.tmp
 *.log
 Thumbs.db
