@@ -14,8 +14,12 @@
   --radius: 4px;
   --page: min(100% - 56px, 1440px);
   --narrow: min(100% - 56px, 1180px);
-  --display: "Times New Roman", "Songti SC", SimSun, serif;
-  --sans: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+  --display: "Noto Serif SC", "Source Han Serif SC", "Source Han Serif CN", "Songti SC", STSong, SimSun, serif;
+  --text: "Noto Sans SC", "Source Han Sans SC", "Source Han Sans CN", "PingFang SC", "Microsoft YaHei",
+    "Noto Sans CJK SC", Arial, sans-serif;
+  --label: "IBM Plex Sans Condensed", "Arial Narrow", "Noto Sans SC", "Source Han Sans SC", Arial, sans-serif;
+  --tech: "Space Grotesk", "Noto Sans SC", "Source Han Sans SC", Arial, sans-serif;
+  --latin-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
 }
 
 * {
@@ -30,9 +34,10 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--text);
   font-size: 16px;
   line-height: 1.72;
+  font-kerning: normal;
   text-rendering: optimizeLegibility;
 }
 
@@ -123,8 +128,9 @@ body.nav-open .site-header {
   height: 42px;
   border: 1px solid currentColor;
   border-radius: 50%;
-  font-family: var(--display);
+  font-family: var(--latin-display);
   font-size: 14px;
+  font-weight: 600;
   line-height: 1;
 }
 
@@ -138,6 +144,7 @@ body.nav-open .site-header {
 .brand small {
   display: block;
   margin-top: 2px;
+  font-family: var(--label);
   font-size: 10px;
   line-height: 1.1;
   letter-spacing: 0.08em;
@@ -153,7 +160,9 @@ body.nav-open .site-header {
 .site-nav a {
   position: relative;
   padding: 8px 0;
+  font-family: var(--label);
   font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.08em;
 }
 
@@ -273,9 +282,10 @@ body.nav-open .site-header {
   border: 1px solid currentColor;
   border-radius: 0;
   cursor: pointer;
+  font-family: var(--label);
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   transition: transform 180ms ease, background 180ms ease, color 180ms ease;
 }
 
@@ -331,7 +341,9 @@ body.nav-open .site-header {
 .contact-copy dt {
   display: block;
   color: var(--muted);
+  font-family: var(--label);
   font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -340,7 +352,9 @@ body.nav-open .site-header {
   display: block;
   margin-top: 7px;
   color: #fff;
+  font-family: var(--label);
   font-size: 17px;
+  font-weight: 700;
   line-height: 1.32;
 }
 
@@ -545,6 +559,7 @@ body.nav-open .site-header {
 
 .panel-title h3 {
   margin: 0;
+  font-family: var(--tech);
   font-size: 24px;
 }
 
@@ -558,6 +573,7 @@ label {
   gap: 10px;
   margin-top: 22px;
   color: var(--ink);
+  font-family: var(--label);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -573,6 +589,7 @@ textarea {
   padding: 13px 0;
   color: var(--ink);
   background: transparent;
+  font-family: var(--text);
   outline: none;
 }
 
@@ -590,6 +607,10 @@ textarea:focus {
   margin-top: 26px;
   padding: 22px 0 0;
   border-top: 1px solid var(--line);
+}
+
+.advisor-result strong {
+  font-family: var(--tech);
 }
 
 .advisor-result ul {
