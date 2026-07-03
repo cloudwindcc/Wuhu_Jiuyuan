@@ -156,7 +156,7 @@ body.nav-open .site-header {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(18px, 2.6vw, 42px);
+  gap: clamp(14px, 2vw, 34px);
 }
 
 .site-nav a {
@@ -396,6 +396,7 @@ body.nav-open .site-header {
 
 .section-intro,
 .service-index,
+.case-layout,
 .portal-layout,
 .profile-statement,
 .profile-grid,
@@ -528,6 +529,89 @@ body.nav-open .site-header {
   max-width: 540px;
   margin: 18px 0 0;
   color: rgba(255, 255, 255, 0.72);
+}
+
+.case-section {
+  background: var(--paper);
+}
+
+.case-feature-grid {
+  display: grid;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.case-feature {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  padding: clamp(30px, 5vw, 62px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-feature:last-child {
+  border-bottom: 0;
+}
+
+.case-index {
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 0.92;
+}
+
+.case-feature span,
+.case-records span {
+  display: block;
+  color: var(--muted);
+  font-family: var(--label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.case-feature h3 {
+  max-width: 880px;
+  margin: 16px 0 0;
+  font-family: var(--display);
+  font-size: clamp(34px, 5.5vw, 82px);
+  font-weight: 400;
+  line-height: 1.02;
+}
+
+.case-feature p {
+  max-width: 720px;
+  margin: 22px 0 0;
+  color: var(--ink-soft);
+  font-size: 18px;
+}
+
+.case-records {
+  display: grid;
+  margin-top: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.case-records article {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.32fr) minmax(240px, 0.42fr) minmax(280px, 1fr);
+  gap: 28px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-records h3 {
+  margin: 0;
+  font-family: var(--tech);
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.case-records p {
+  margin: 0;
+  color: var(--ink-soft);
 }
 
 .portal-section {
@@ -790,6 +874,8 @@ html[lang="en"] .project-card h3 {
   }
 
   .service-index article,
+  .case-feature,
+  .case-records article,
   .portal-layout,
   .profile-grid,
   .contact-layout {
@@ -925,6 +1011,14 @@ html[lang="en"] .project-card h3 {
 
   .service-index p {
     font-size: 16px;
+  }
+
+  .case-feature {
+    gap: 12px;
+  }
+
+  .case-records article {
+    gap: 8px;
   }
 
   .timeline article {

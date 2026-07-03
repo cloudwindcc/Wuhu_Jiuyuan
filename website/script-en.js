@@ -13,23 +13,42 @@ navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     body.classList.remove("nav-open");
     navToggle?.setAttribute("aria-expanded", "false");
+    if (link.getAttribute("href")?.startsWith("#")) {
+      sectionLinks.forEach((sectionLink) => {
+        sectionLink.classList.toggle("active", sectionLink === link);
+      });
+    }
   });
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    const visible = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (!visible) return;
-    sectionLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
-    });
+function setActiveSection(sectionId) {
+  sectionLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+  });
+}
+
+let ticking = false;
+
+function updateActiveSection() {
+  const marker = window.innerHeight * 0.3;
+  const current = sections.reduce((active, section) => {
+    return section.getBoundingClientRect().top <= marker ? section.id : active;
+  }, "");
+  setActiveSection(current);
+  ticking = false;
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateActiveSection);
   },
-  { rootMargin: "-22% 0px -62% 0px", threshold: [0.1, 0.3, 0.6] }
+  { passive: true }
 );
 
-sections.forEach((section) => observer.observe(section));
+updateActiveSection();
 
 const advisorData = {
   public: {
