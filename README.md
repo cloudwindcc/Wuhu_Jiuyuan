@@ -4,9 +4,11 @@
 
 ## 项目内容
 
-- `website/index.html`：官网页面结构
+- `website/index.html`：中文官网页面结构
+- `website/en.html`：英文对照页面
 - `website/styles.css`：响应式样式
 - `website/script.js`：移动端导航、项目启动建议、表单记录逻辑
+- `website/script-en.js`：英文页面导航、项目启动建议、表单记录逻辑
 - `website/assets/hero-architecture-studio.png`：官网主视觉资产
 - `index.html`：GitHub Pages 根路径跳转页
 

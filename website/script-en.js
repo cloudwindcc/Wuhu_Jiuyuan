@@ -33,24 +33,24 @@ sections.forEach((section) => observer.observe(section));
 
 const advisorData = {
   public: {
-    early: ["用地红线、控规条件、任务书初稿", "使用人群与功能面积需求", "审批节点、投资估算与工期边界"],
-    design: ["现状测绘资料与地勘资料", "专业条件表与机电接口", "消防、无障碍、节能等专项要求"],
-    site: ["施工图审查意见", "材料样板与变更台账", "现场问题清单与会议纪要"],
+    early: ["Site boundary and planning conditions", "User groups and functional area requirements", "Approval milestones, cost estimate and schedule boundaries"],
+    design: ["Measured survey and geotechnical information", "Discipline condition sheets and MEP interfaces", "Fire protection, accessibility and energy-saving requirements"],
+    site: ["Construction drawing review comments", "Material samples and change ledger", "Site issue list and meeting minutes"],
   },
   office: {
-    early: ["品牌定位、办公人数与商业业态", "交通组织、停车和后勤需求", "立面形象与展示面控制"],
-    design: ["平面效率指标、竖向交通条件", "幕墙、机电、消防专业接口", "租售或运营单位反馈清单"],
-    site: ["样板段确认记录", "机电综合与装饰收口问题", "竣工资料与交付标准"],
+    early: ["Brand positioning, staff count and commercial program", "Traffic organization, parking and back-of-house needs", "Facade identity and key display elevations"],
+    design: ["Plan efficiency targets and vertical circulation conditions", "Curtain wall, MEP and fire protection interfaces", "Feedback checklist from sales, leasing or operations teams"],
+    site: ["Mock-up area confirmation records", "MEP coordination and interior closing details", "Completion documents and handover standards"],
   },
   residential: {
-    early: ["社区配套清单与户型/服务半径要求", "既有建筑安全与管线资料", "居民使用痛点与更新目标"],
-    design: ["日照、消防、无障碍和景观接口", "立面改造材料策略", "分期施工与居民沟通计划"],
-    site: ["现场变更签证资料", "质量缺陷与整改闭环", "交付后运维建议"],
+    early: ["Community amenity list and service radius requirements", "Existing building safety and utility information", "Resident pain points and renewal objectives"],
+    design: ["Sunlight, fire protection, accessibility and landscape interfaces", "Facade renewal material strategy", "Phased construction and resident communication plan"],
+    site: ["Site change and confirmation records", "Quality defect close-out list", "Post-handover operation and maintenance advice"],
   },
   smart: {
-    early: ["弱电系统现状与业主使用目标", "安防、网络、机房和运维权限需求", "预算边界与分期建设计划"],
-    design: ["点位表、系统图和设备清单", "与建筑、装饰、机电专业的综合接口", "数据安全与账号权限要求"],
-    site: ["设备调试记录", "系统验收测试报告", "运维培训与资料移交清单"],
+    early: ["Existing low-voltage system conditions and owner goals", "Security, network, equipment room and operations permission needs", "Budget boundary and phased implementation plan"],
+    design: ["Point schedule, system diagrams and equipment list", "Integrated interfaces with architecture, interiors and MEP disciplines", "Data security and account permission requirements"],
+    site: ["Equipment commissioning records", "System acceptance test report", "Operations training and document handover checklist"],
   },
 };
 
@@ -63,7 +63,7 @@ function renderAdvisor() {
   if (!projectType || !projectStage || !advisorResult) return;
   const items = advisorData[projectType.value][projectStage.value];
   advisorResult.innerHTML = `
-    <strong>建议准备</strong>
+    <strong>Suggested Preparation</strong>
     <ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>
   `;
 }
@@ -85,11 +85,11 @@ contactForm?.addEventListener("submit", (event) => {
     message: data.get("message"),
     createdAt: new Date().toISOString(),
   };
-  const existing = JSON.parse(localStorage.getItem("jiuyuan_inquiries") || "[]");
+  const existing = JSON.parse(localStorage.getItem("jiuyuan_inquiries_en") || "[]");
   existing.push(record);
-  localStorage.setItem("jiuyuan_inquiries", JSON.stringify(existing));
+  localStorage.setItem("jiuyuan_inquiries_en", JSON.stringify(existing));
   contactForm.reset();
   if (formStatus) {
-    formStatus.textContent = "留言已记录。项目团队将根据联系方式跟进需求。";
+    formStatus.textContent = "Your inquiry has been recorded. The project team will follow up using the contact information provided.";
   }
 });
